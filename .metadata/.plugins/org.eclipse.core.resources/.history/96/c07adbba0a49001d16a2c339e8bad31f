@@ -1,0 +1,59 @@
+package com.javalec.base;
+
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class kioskMain {
+
+	private JFrame frmKiosk;
+	private Image background = new ImageIcon(kioskMain.class.getResource("../images/advertisement.png")).getImage();
+	private JPanel panel;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					kioskMain window = new kioskMain();
+					window.frmKiosk.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public kioskMain() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmKiosk = new JFrame();
+		frmKiosk.setTitle("Kiosk");
+		frmKiosk.setBounds(100, 100, 400, 600);
+		frmKiosk.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmKiosk.getContentPane().setLayout(null);
+		frmKiosk.getContentPane().add(getPanel());
+	}
+	private JPanel getPanel() {
+		if (panel == null) {
+			panel = new JPanel();
+			panel.setBounds(0, 0, 400, 572);
+		}
+		return panel;
+	}
+}

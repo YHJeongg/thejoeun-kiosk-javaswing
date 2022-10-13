@@ -1,0 +1,45 @@
+package com.javalec.dao;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.javalec.dto.kioskOrderDto;
+import com.javalec.util.DBConnect;
+
+
+public class kioskOrderDao {
+
+	public ArrayList<kioskOrderDto> selectList() {
+
+		ArrayList<kioskOrderDto> dtoList = new ArrayList<kioskOrderDto>();
+
+		String whereStatement = "select productid, productprice, pprice from product";
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conn_mysql = DriverManager.getConnection(DBConnect.url_mysql, DBConnect.id_mysql,
+					DBConnect.pw_mysql);
+			Statement stmt_mysql = conn_mysql.createStatement();
+
+			ResultSet rs = stmt_mysql.executeQuery(whereStatement);
+
+			while (rs.next()) {
+				String wkPid = rs.getString(1);
+				String skPbrand = rs.getString(2);
+				int wkPprice = rs.getInt(3);
+
+				kioskOrderDto kioskOrderDto = new kioskOrderDto(wkPid, skPbrand, wkPprice);
+				dtoList.add(kioskOrderDto);
+			}
+
+			conn_mysql.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return dtoList;
+
+	}
+}

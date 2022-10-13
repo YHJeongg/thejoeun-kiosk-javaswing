@@ -1,0 +1,64 @@
+package com.javalec.base;
+
+import java.awt.EventQueue;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.GridLayout;
+
+public class kioskInsertTelNo {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					kioskInsertTelNo window = new kioskInsertTelNo();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public kioskInsertTelNo() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 280, 382);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new GridLayout(4, 3, 10, 10));
+		
+		JButton[] bt = new JButton[12];
+		bt[0] = new JButton("7");
+		bt[1] = new JButton("8");
+		bt[2] = new JButton("9");
+		bt[3] = new JButton("4");
+		bt[4] = new JButton("5");
+		bt[5] = new JButton("6");
+		bt[6] = new JButton("1");
+		bt[7] = new JButton("2");
+		bt[8] = new JButton("3");
+		bt[9] = new JButton("C");
+		bt[10] = new JButton("0");
+		bt[11] = new JButton("<-");
+
+		for (int i = 0; i < 12; i++) {
+			frame.add(bt[i]);
+		}
+	}
+
+}

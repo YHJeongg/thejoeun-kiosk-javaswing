@@ -1,0 +1,62 @@
+package com.javalec.base;
+
+import java.awt.EventQueue;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.GridLayout;
+import javax.swing.JPanel;
+
+
+public class kioskTelNo {
+
+	private JFrame frmTelNo;
+	private JPanel plInsertTelNo;
+	private JPanel panel;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					kioskTelNo window = new kioskTelNo();
+					window.frmTelNo.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public kioskTelNo() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmTelNo = new JFrame();
+		frmTelNo.getContentPane().setBackground(new Color(254, 255, 255));
+		frmTelNo.getContentPane().setLayout(null);
+		frmTelNo.setBackground(new Color(254, 255, 255));
+		frmTelNo.setTitle("전화번호를 입력하세요.");
+		frmTelNo.setBounds(100, 100, 300, 450);
+		frmTelNo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(6, 70, 288, 346);
+		panel.setLayout(new GridLayout(1, 0, 0, 0));
+		frmTelNo.add(panel);
+			
+		}
+
+
+	}
+}

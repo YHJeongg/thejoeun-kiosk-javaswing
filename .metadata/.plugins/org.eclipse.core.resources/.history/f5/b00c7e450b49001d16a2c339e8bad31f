@@ -1,0 +1,75 @@
+package com.javalec.base;
+
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+
+public class kioskMain {
+
+	private JFrame frmKiosk;
+	private Image background = new ImageIcon(kioskMain.class.getResource("../images/advertisement.png")).getImage();
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					kioskMain window = new kioskMain();
+					window.frmKiosk.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public kioskMain() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmKiosk = new JFrame();
+		frmKiosk.setTitle("Kiosk");
+		frmKiosk.setBounds(100, 100, 400, 600);
+		frmKiosk.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmKiosk.getContentPane().setLayout(null);
+		frmKiosk.getContentPane().add(getLblNewLabel_1());
+		frmKiosk.getContentPane().add(getLblNewLabel());
+	}
+	private JLabel getLblNewLabel() {
+		if (lblNewLabel == null) {
+			lblNewLabel = new JLabel("");
+			lblNewLabel.setIcon(new ImageIcon(kioskMain.class.getResource("/com/javalec/images/advertisement.png")));
+			lblNewLabel.setBounds(0, 0, 400, 572);
+		}
+		return lblNewLabel;
+	}
+	private JLabel getLblNewLabel_1() {
+		if (lblNewLabel_1 == null) {
+			lblNewLabel_1 = new JLabel("화면터치 > 상품선택 > 결제 / 주문서확인 > 주문완료");
+			lblNewLabel_1.setForeground(new Color(254, 255, 255));
+			lblNewLabel_1.setBackground(new Color(121, 121, 121));
+			lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNewLabel_1.setBounds(0, 532, 400, 40);
+			lblNewLabel_1.setOpaque(true);
+		}
+		return lblNewLabel_1;
+	}
+}

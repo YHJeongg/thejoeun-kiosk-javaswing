@@ -1,0 +1,104 @@
+package com.javalec.base;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+
+public class kioskPayment {
+
+	private JFrame frmPayment;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JButton btnNewButton;
+	private JLabel lblNewLabel_2;
+	private JLabel lblPayment;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					kioskPayment window = new kioskPayment();
+					window.frmPayment.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public kioskPayment() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmPayment = new JFrame();
+		frmPayment.setTitle("Kiosk 결재");
+		frmPayment.getContentPane().setBackground(new Color(255, 212, 120));
+		frmPayment.getContentPane().setLayout(null);
+		frmPayment.getContentPane().add(getLblNewLabel());
+		frmPayment.getContentPane().add(getLblNewLabel_1());
+		frmPayment.getContentPane().add(getBtnNewButton());
+		frmPayment.getContentPane().add(getLblNewLabel_2());
+		frmPayment.getContentPane().add(getLblPayment());
+		frmPayment.setBounds(100, 100, 400, 600);
+		frmPayment.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	private JLabel getLblNewLabel() {
+		if (lblNewLabel == null) {
+			lblNewLabel = new JLabel("");
+			lblNewLabel.setIcon(new ImageIcon(kioskPayment.class.getResource("/com/javalec/images/cardPayment.png")));
+			lblNewLabel.setBounds(48, 110, 300, 185);
+		}
+		return lblNewLabel;
+	}
+	private JLabel getLblNewLabel_1() {
+		if (lblNewLabel_1 == null) {
+			lblNewLabel_1 = new JLabel("신용 / 체크카드를 넣어주세요.");
+			lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+			lblNewLabel_1.setBounds(76, 81, 247, 37);
+		}
+		return lblNewLabel_1;
+	}
+	private JButton getBtnNewButton() {
+		if (btnNewButton == null) {
+			btnNewButton = new JButton("결재");
+			btnNewButton.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+			btnNewButton.setBounds(117, 472, 163, 47);
+		}
+		return btnNewButton;
+	}
+	private JLabel getLblNewLabel_2() {
+		if (lblNewLabel_2 == null) {
+			lblNewLabel_2 = new JLabel("결재 금액");
+			lblNewLabel_2.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+			lblNewLabel_2.setBounds(167, 337, 61, 16);
+		}
+		return lblNewLabel_2;
+	}
+	private JLabel getLblPayment() {
+		if (lblPayment == null) {
+			lblPayment = new JLabel("");
+			lblPayment.setHorizontalAlignment(SwingConstants.CENTER);
+			lblPayment.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+			lblPayment.setBounds(144, 365, 103, 30);
+			lblPayment.setText(Integer.toString(kioskOrder.sum));
+		}
+		return lblPayment;
+	}
+}

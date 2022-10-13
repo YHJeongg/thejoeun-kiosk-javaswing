@@ -1,0 +1,11 @@
+package com.javalec.dto;
+
+public class kioskOrderDto {
+	
+	String productid;
+	int productprice;
+	String productcategory;
+	String productinitdate;
+	
+
+}

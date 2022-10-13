@@ -1,0 +1,14 @@
+package com.javalec.dto;
+
+public class kioskTelNoDto {
+	String custphone;
+
+	public String getCustphone() {
+		return custphone;
+	}
+
+	public void setCustphone(String custphone) {
+		this.custphone = custphone;
+	}
+	
+}

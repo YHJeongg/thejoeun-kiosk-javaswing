@@ -1,0 +1,42 @@
+package com.javalec.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import com.javalec.dto.kioskOrderDto;
+import com.javalec.util.DBConnect;
+
+public class kioskTelNoDao {
+	
+	
+	public kioskOrderDto tableClick() {
+		kioskOrderDto dto = null;
+
+		String whereStatement = "select productid, productprice from product ";
+		String whereStatement2 = "where productid = " + "'" + custphone + "'";
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conn_mysql = DriverManager.getConnection(DBConnect.url_mysql, DBConnect.id_mysql,
+					DBConnect.pw_mysql);
+			Statement stmt_mysql = conn_mysql.createStatement();
+
+			ResultSet rs = stmt_mysql.executeQuery(whereStatement + whereStatement2);
+
+			if (rs.next()) {
+				String wkPid = rs.getString(1);
+				int wkPprice = rs.getInt(2);
+
+				dto = new kioskOrderDto(wkPid, wkPprice);
+			}
+
+			conn_mysql.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return dto;
+	}
+}
